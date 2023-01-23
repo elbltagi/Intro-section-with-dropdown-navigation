@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="left">
+      <img  src="./images/logo.svg" alt="logo">
+      <nav class="anim">
+        <img class="close" src="./images/icon-close-menu.svg" id="close" alt="close icon"/>
+        <div class="features">
+          <a href="#">Features <img src="./images/icon-arrow-down.svg"/></a>
+          <ul>
+            <li><img src="./images/icon-todo.svg" alt="todo icon"><p>Todo List</p></li>
+            <li><img src="./images/icon-calendar.svg" alt="calendar"><p>Calendar</p></li>
+            <li><img src="./images/icon-reminders.svg" alt="reminders"><p>Reminders</p></li>
+            <li><img src="./images/icon-planning.svg" alt="planning"><p>Planning</p></li>
+          </ul>
+        </div>
+        <div class="company">
+          <a href="#">Company <img src="./images/icon-arrow-down.svg" alt="arrow icon"/></a>
+          <ul>
+            <li><p>History</p></li>
+            <li><p>Our Team</p></li>
+            <li><p>Blog</p></li>
+            
+          </ul>
+        </div>
+        <a href="#">Careers</a>
+        <a href="#">About</a>
+        <div class="auth-mobile">
+          <a class="login-btn">Login</a>
+          <a class="reg-btn">Register</a>
+        </div>
+      </nav>
+      <div class="black-back"></div>
+    </div>
+    <div class="auth">
+      <a class="login-btn">Login</a>
+      <a class="reg-btn">Register</a>
+    </div>
+    <img class="menu" id="menu" src="./images/icon-menu.svg" alt="menu"/>
+  </header>
+  <main>
+    <section class="text-content">
+      <h1>Make<br class="hide"/> remote work</h1>
+      <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+      <button>Learn more</button>
+      <div class="clients">
+        <img src="./images/client-databiz.svg" alt="databiz logo">
+        <img src="./images/client-audiophile.svg" alt="audiophile">
+        <img src="./images/client-meet.svg" alt="meet">
+        <img src="./images/client-maker.svg" alt="maker">
+      </div>
+    </section>
+    
+    <picture>
+      <source media="(min-width:750px)" srcset="./images/image-hero-desktop.png">
+      <img src="./images/image-hero-mobile.png" alt="hero image">
+    </picture>
+  </main>
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/elbltagi" target="_blank">Youssef Elbltagi</a>.
+  </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   <script>
+    $(".features a").click(()=>{
+      if($(".features a img").hasClass("rotate") === false){
+        $(".features a img").addClass("rotate")
+        $(".features ul").css("display","flex");
+      }else{
+        $(".features a img").removeClass("rotate")
+        $(".features ul").css("display","none");
+      }
+    })
+    $(".company a").click(()=>{
+      if($(".company a img").hasClass("rotate") === false){
+        $(".company a img").addClass("rotate")
+        $(".company ul").css("display","flex");
+      }else{
+        $(".company a img").removeClass("rotate")
+        $(".company ul").css("display","none");
+      }
+    })
+    $("#menu").click(()=>{
+      $("header nav").removeClass("anim")
+      $(".black-back").css("left","0")
+    })
+    $("#close").click(()=>{
+      $("header nav").addClass("anim")
+      $(".black-back").css("left","-100%")
+    });
+   </script>
+</html>
